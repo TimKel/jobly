@@ -51,8 +51,14 @@ router.post("/", ensureLoggedIn, async function (req, res, next) {
  */
 
 router.get("/", async function (req, res, next) {
+  const q = req.query;
+
+  //receive query for num_employees as a string and turn into integer
+  if(q.minEmployees !== undefined) q.minEmployees = +q.minEmployees;
+  if(q.maxEmployees !== undefined) q.maxEmployees = +q.maxEmployees;
+  console.log(q.minEmployees, q.maxEmployees);
   try {
-    const companies = await Company.findAll();
+    const companies = await Company.findAll(q);
     return res.json({ companies });
   } catch (err) {
     return next(err);

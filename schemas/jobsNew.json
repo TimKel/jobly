@@ -1,0 +1,57 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "title",
+        "companyHandle"
+    ],
+    "properties": {
+        "title": {
+            "type": "string",
+            "default": "",
+            "title": "The title Schema",
+            "examples": [
+                "Information officer"
+            ],
+            "minLength": "1",
+            "maxLength": "50"
+        },
+        "salary": {
+            "type": 0,
+            "default": "",
+            "title": "The salary Schema",
+            "examples": [
+                "200000"
+            ],
+            "minimum": 0
+        },
+        "equity": {
+            "type": "string",
+            "default": "",
+            "title": "The equity Schema",
+            "examples": [
+                "0"
+            ],
+            "pattern": "0|(0?\\\\.[0-9]+)"
+        },
+        "companyHandle": {
+            "type": "string",
+            "default": "",
+            "title": "The companyHandle Schema",
+            "examples": [
+                "halls-mills"
+            ],
+            "minLength": "1",
+            "maxLength": "30"
+        }
+    },
+    "examples": [{
+        "title": "Information officer",
+        "salary": "200000",
+        "equity": "0",
+        "companyHandle": "halls-mills"
+    }]
+}
